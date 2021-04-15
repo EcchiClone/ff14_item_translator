@@ -1,8 +1,10 @@
 # ff14_item_tranlator
+[실행파일 다운로드](https://github.com/happylee789/ff14_item_translator/raw/main/dist/main.exe)
 
 ![Honeycam 2021-04-16 03-13-53](https://user-images.githubusercontent.com/21221633/114918726-61385f00-9e62-11eb-8460-a490ea7384fe.gif)
 
 ## 사용방법
+
 양쪽의 텍스트 칸은 입력 및 출력칸으로 사용 될 수 있습니다.
 
 상단의 텍스트칸에 '일본어'의 아이템명을 적은 후, 'JP to EN'버튼을 누르면 아이템의 영어명이 하단의 텍스트칸에 표시됩니다.
