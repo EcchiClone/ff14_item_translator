@@ -15,15 +15,13 @@ ITEM_INPUT = ""
 ITEM_OUTPUT = ""
 STATUS = "JP"
 
-# 샘플 스레드입니다. 버튼 1을 클릭 시, 샘플 클래스를 호출합니다.
+# 샘플 스레드입니다. 검색버튼을 클릭 시, 샘플 클래스를 호출합니다.
 class NewThread(threading.Thread):
     def __init__(self, _window):
         threading.Thread.__init__(self)
         self.win = _window
     def run(self):
         instance = myClass(self.win)
-
-
 
 # 샘플 클래스입니다. 새 샘플 스레드에서 실행될 수 있도록 해 두었습니다.
 class myClass():
@@ -80,6 +78,7 @@ class Application(tk.Frame):
         self.create_widgets()
 
     def create_widgets(self):
+        
 
         # 라벨, 그리드 배치를 하였습니다.
         self.lb1 = tk.Label(window, text="JP", width=5)
@@ -98,36 +97,38 @@ class Application(tk.Frame):
         self.str2=tk.StringVar()
 
         self.entry1 = tk.Entry(window, textvariable=self.str1, width=25)
+        self.entry1.bind('<Return>',self.btn1_function)
         self.entry1.grid(row=0,column=1,columnspan=2)
 
         self.entry2 = tk.Entry(window, textvariable=self.str2, width=25)
+        self.entry2.bind('<Return>',self.btn2_function)
         self.entry2.grid(row=1,column=1,columnspan=2)
 
         # 버튼1
         self.btn1 = tk.Button(window, text="JP to EN", width=10, height=1)
-        self.btn1["command"] = self.btn1_function
+        self.btn1.bind('<Button-1>',self.btn1_function)
         self.btn1.grid(row=0,column=3,rowspan=1)
         # 버튼2
         self.btn2 = tk.Button(window, text="EN to JP", width=10, height=1)
-        self.btn2["command"] = self.btn2_function
+        self.btn2.bind('<Button-1>',self.btn2_function)
         self.btn2.grid(row=1,column=3,rowspan=1)
 
         # 종료 버튼
         self.quit_btn = tk.Button(window, text="QUIT", fg="red", command=self.quit_btn_function, width=10, height=2)
         self.quit_btn.grid(row=3,column=3,rowspan=1)
 
-    # 버튼 1을 클릭 시 실행합니다
-    def btn1_function(self):
+    # 버튼을 클릭 시 실행합니다
+    def btn1_function(self, event):
         global STATUS
         STATUS = "JP"
         NewThread(self).start()
 
-    def btn2_function(self):
+    def btn2_function(self, event):
         global STATUS
         STATUS = "EN"
         NewThread(self).start()
 
-    # 버튼 2를 클릭 시 실행합니다
+    # 버튼 quit를 클릭 시 실행합니다
     def quit_btn_function(self):
         sys.exit()
 
