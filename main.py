@@ -38,7 +38,10 @@ class myClass():
             ITEM_INPUT = self.win.entry3.get()
         elif (STATUS=="KR"):
             ITEM_INPUT = self.win.entry1.get()
-        
+        ITEM_INPUT = ITEM_INPUT.strip()
+        if(ITEM_INPUT==""):
+            self.win.log.set("입력이 없습니다")
+            return
         self.parsed_input = urllib.parse.quote(ITEM_INPUT, safe='')
         self.win.log.set("검색을 시작합니다")
         print("ITEM_INPUT : ["+ITEM_INPUT+"]")
