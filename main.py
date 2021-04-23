@@ -3,14 +3,11 @@
 
 import tkinter as tk # 애플리케이션 gui
 from tkinter import messagebox # tk 경고박스 등\
-import time # time.sleep() 등에 사용
 import threading # 스레드
 import sys # 애플리케이션 종료 등
 import urllib.request # 웹 정보에 접근, 처리 등
 import urllib # 웹 정보에 접근, 처리 등
-import webbrowser
-from bs4 import BeautifulSoup
-LOGTEXT = "" # 삭제 예정 변수. 현재 미사용
+from bs4 import BeautifulSoup # 웹 정보에 접근, 처리 등
 ITEM_INPUT = ""
 STATUS = "JP"
 
@@ -170,11 +167,11 @@ class Application(tk.Frame):
         
 
         # 라벨, 그리드 배치를 하였습니다.
-        self.lb1 = tk.Label(window, text="KO", width=5)
+        self.lb1 = tk.Label(window, text="ᄒᆞᆫ글", width=6)
         self.lb1.grid(row=0,column=0)
-        self.lb2 = tk.Label(window, text="JP")
+        self.lb2 = tk.Label(window, text="日本語")
         self.lb2.grid(row=1,column=0)
-        self.lb3 = tk.Label(window, text="EN")
+        self.lb3 = tk.Label(window, text="English")
         self.lb3.grid(row=2,column=0)
 
         # 업데이트용 변수와 라벨
@@ -201,20 +198,20 @@ class Application(tk.Frame):
         self.entry3.grid(row=2,column=1,columnspan=2)
 
         # 버튼1
-        self.btn1 = tk.Button(window, text="-> JP EN", width=10, height=1)
+        self.btn1 = tk.Button(window, text="번역", width=5, height=1)
         self.btn1.bind('<Button-1>',self.btn1_function)
         self.btn1.grid(row=0,column=3,rowspan=1)
         # 버튼2
-        self.btn2 = tk.Button(window, text="-> KR EN", width=10, height=1)
+        self.btn2 = tk.Button(window, text="翻訳", width=5, height=1)
         self.btn2.bind('<Button-1>',self.btn2_function)
         self.btn2.grid(row=1,column=3,rowspan=1)
         # 버튼3
-        self.btn3 = tk.Button(window, text="-> KR JP", width=10, height=1)
+        self.btn3 = tk.Button(window, text="Trans", width=5, height=1)
         self.btn3.bind('<Button-1>',self.btn3_function)
         self.btn3.grid(row=2,column=3,rowspan=1)
 
         # 종료 버튼
-        self.quit_btn = tk.Button(window, text="QUIT", fg="red", command=self.quit_btn_function, width=10, height=2)
+        self.quit_btn = tk.Button(window, text="QUIT", fg="red", command=self.quit_btn_function, width=5, height=2)
         self.quit_btn.grid(row=3,column=3,rowspan=1)
 
     # 버튼을 클릭 시 실행합니다
@@ -244,7 +241,7 @@ window = tk.Tk()
 window.title("Item Translator")
 # window.iconbitmap(default='icon.ico')
 # window.tk.call('wm', 'iconphoto', window._w, tk.PhotoImage(file='./icon.png'))
-window.geometry("305x125+1200+200")
+window.geometry("275x123+1200+200")
 window.resizable(False,False)
 
 # 앱 시작
